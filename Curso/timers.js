@@ -2,19 +2,46 @@
 
 window.addEventListener('load',() => {
     
-    var tiempo = setInterval(() => {
+    const intervalo = () => {
+        var tiempo = setInterval(() => {
 
 
-        console.log('Intervalo Ejecutado')
+            console.log('Intervalo Ejecutado')
+    
+            var encabezado = document.querySelector('h1');
+    
+            if(encabezado.style.color == 'blue'){
+                encabezado.style.color = 'red'
+            }else{
+                encabezado.style.color = 'blue'
+            }
+    
+        }, 1000 );
 
-        var encabezado = document.querySelector('h1');
+        return tiempo;
+    }
 
-        if(encabezado.style.fontSize == '50px'){
-            encabezado.style.fontSize = '30px'
-        }else{
-            encabezado.style.fontSize = '50px'
-        }
 
-    }, 3000 );
+    var tiempo = intervalo();
+
+    var stop = document.querySelector('#stop');
+
+    stop.addEventListener('click', () => {
+
+        alert("Has parado el intervalo");
+
+        clearInterval(tiempo);
+
+    });
+
+    var start = document.querySelector('#start');
+
+    start.addEventListener('click', () => {
+
+        alert("Has iniciado el intervalo");
+
+        intervalo();
+
+    });
 
 })
