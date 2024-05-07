@@ -12,3 +12,4 @@ function playSonidoClap(){
 
 //Bringing a html element by its class name
 document.querySelector('.tecla_pom').onclick = playSonidoPom; //Using a function in an atributte
+//Putting () makes the functions execute inmediatly, and that is a bad practice, cause the user needs to interact with the page before we can execute something, that why we delete ()
