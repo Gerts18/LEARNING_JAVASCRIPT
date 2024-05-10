@@ -10,11 +10,14 @@ function playSonidoPom(){ //Using a function to execute my functionality
 document.querySelector('.tecla_pom').onclick = playSonidoPom; //Using a function in an atributte
 //Putting () makes the functions execute inmediatly, and that is a bad practice, cause the user needs to interact with the page before we can execute something, that's why we delete ()
 
-
 /* function playSonidoClap(){
     document.querySelector('#sonido_tecla_clap').play();
 }
 document.querySelector('.tecla_clap').onclick = playSonidoClap; */
 
+/* ----------------------------------- */
+
 const listaTeclas = document.querySelectorAll('.tecla') //Brings a list with all HTML elements with that selector
 //Here we are using a variable to reference or asign data and use it later 
+
+listaTeclas[0].onclick = playSonidoPom; //Accesing to an element in my list and assigning a function to that element 
