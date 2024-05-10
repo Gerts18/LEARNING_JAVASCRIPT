@@ -16,4 +16,5 @@ document.querySelector('.tecla_pom').onclick = playSonidoPom; //Using a function
 }
 document.querySelector('.tecla_clap').onclick = playSonidoClap; */
 
-document.querySelectorAll('.tecla') //Brings a list with all HTML elements with that selector
+const listaTeclas = document.querySelectorAll('.tecla') //Brings a list with all HTML elements with that selector
+//Here we are using a variable to reference or asign data and use it later 
