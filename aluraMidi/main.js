@@ -22,8 +22,14 @@ const listaTeclas = document.querySelectorAll('.tecla') //Brings a list with all
 
 listaTeclas[0].onclick = playSonidoPom; //Accesing to an element in my list and assigning a function to that element 
 
+
+function playSonido(idElementoAudio){ 
+    document.querySelector(idElementoAudio).play(); 
+}
+
+
 let contador = 0;
 while( contador < listaTeclas.length ){
-    listaTeclas[contador].onclick = playSonidoPom;
+    listaTeclas[contador].onclick = playSonido(``);
     contador ++;
 };
