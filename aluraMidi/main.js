@@ -21,3 +21,9 @@ const listaTeclas = document.querySelectorAll('.tecla') //Brings a list with all
 //Here we are using a variable to reference or asign data and use it later 
 
 listaTeclas[0].onclick = playSonidoPom; //Accesing to an element in my list and assigning a function to that element 
+
+let contador = 0;
+while( contador < listaTeclas.length ){
+    listaTeclas[contador].onclick = playSonidoPom;
+    contador ++;
+};
