@@ -27,11 +27,15 @@ function playSonido(idElementoAudio){
     document.querySelector(idElementoAudio).play(); //Creating a function to encapsulate a repetitive functionallity
 }
 
-
 let contador = 0;
+
 while( contador < listaTeclas.length ){
+
+    const instrumento = listaTeclas[contador].classList[1]; //Getting classes associated to each element
+
     listaTeclas[contador].onclick = function () {
-        playSonido('#sonido_tecla_clap'); //Using an anonymous function to avoid executing the function when we are assigning the functionallity to the element
+        playSonido(`#sonido_${instrumento}`); //Using an anonymous function to avoid executing the function when we are assigning the functionallity to the element
     };
+
     contador ++;
 };
