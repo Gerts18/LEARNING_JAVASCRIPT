@@ -35,8 +35,10 @@ while( contador < listaTeclas.length ){
 
     const instrumento = tecla.classList[1]; //Getting classes associated to each element
 
+    const idAudio = `#sonido_${instrumento}`
+
     tecla.onclick = function () {
-        playSonido(`#sonido_${instrumento}`); //Using an anonymous function to avoid executing the function when we are assigning the functionallity to the element
+        playSonido(idAudio); //Using an anonymous function to avoid executing the function when we are assigning the functionallity to the element
     };
 
     contador ++;
