@@ -24,12 +24,12 @@ listaTeclas[0].onclick = playSonidoPom; //Accesing to an element in my list and 
 
 
 function playSonido(idElementoAudio){ 
-    document.querySelector(idElementoAudio).play(); 
+    document.querySelector(idElementoAudio).play(); //Creating a function to encapsulate a repetitive functionallity
 }
 
 
 let contador = 0;
 while( contador < listaTeclas.length ){
-    listaTeclas[contador].onclick = playSonido(``);
+    listaTeclas[contador].onclick = playSonido();
     contador ++;
 };
