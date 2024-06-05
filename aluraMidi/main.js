@@ -40,11 +40,17 @@ for(let contador = 0; contador < listaTeclas.length; contador++){
         playSonido(idAudio); //Using an anonymous function to avoid executing the function when we are assigning the functionallity to the element
     };
 
-    tecla.onkeydown = () => { //Accessing to properties of my attribute and using an event
-        tecla.classList.add('activa'); //Adding a class to my attribute 
+    tecla.onkeydown = (event) => { //Accessing to properties of my attribute and using an event
+
+        const keyPush = event.code; //accesing to key code from the key push by the user
+
+        if(keyPush === 'Space' || keyPush === 'Enter'){
+            tecla.classList.add('activa'); //Adding a class to my attribute 
+        }
+        
     };
     
     tecla.onkeyup = () => {
-        tecla.classList.remove('activa');
+        tecla.classList.remove('activa'); //Removing a class
     };
 }
