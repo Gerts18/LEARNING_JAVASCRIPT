@@ -54,3 +54,14 @@ for(let contador = 0; contador < listaTeclas.length; contador++){
         tecla.classList.remove('activa'); //Removing a class
     };
 }
+
+listaTeclas.forEach((tecla, i) => {
+    const instrumento = tecla.classList[i];
+
+    const idAudio = `#sonido_${instrumento}` //Using a dynamic variable 
+
+    tecla.onclick = () => {
+        playSonido(idAudio); 
+    };
+
+})
