@@ -6,17 +6,19 @@ const botonCorto = document.querySelector('.app__card-button--corto');
 const botonLargo = document.querySelector('.app__card-button--largo');
 const banner = document.querySelector('.app__image'); 
 
+const cambiarContexto = (contexto) => { //Using a function to optimize code
+    html.setAttribute('data-contexto', contexto); //Changing an attribute of my HTML element
+    banner.setAttribute('src', `imagenes/${contexto}.png`);
+}
+
 botonEnfoque.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'enfoque')
-    banner.setAttribute('src', 'imagenes/enfoque.png')
+    cambiarContexto('enfoque');
 })
 
 botonCorto.addEventListener('click', () => { //Listening an event
-    html.setAttribute('data-contexto', 'descanso-corto') //Changing an attribute of my HTML element
-    banner.setAttribute('src', 'imagenes/descanso-corto.png')
+    cambiarContexto('descanso-largo');
 })
 
 botonLargo.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'descanso-largo')
-    banner.setAttribute('src', 'imagenes/descanso-largo.png')
+    cambiarContexto('descanso-corto');
 })
