@@ -91,6 +91,11 @@ const cuentaRegresiva = () => {
 }
 
 function iniciarPausar(){
+    if(idIntervalo){ //If idIntervalo it's different of null
+        reiniciar() 
+        return 
+    }
+
     idIntervalo = setInterval(cuentaRegresiva, 1000) //Method to establish an interval in wich a determinated thing is going to occur
 }
 
