@@ -54,11 +54,6 @@ const cambiarContexto = (contexto) => { //Using a function to optimize code
     }
 }
 
-const cuentaRegresiva = () => {
-    iniciarPausar();
-    tiempoTranscurrido -= 1;  //Decreasing value of the variable 
-}
-
 botonEnfoque.addEventListener('click', () => { //Listening an event
     cambiarContexto('enfoque'); //Making changes based on the button clicked
     botonEnfoque.classList.add('active'); //Adding focus
@@ -82,10 +77,24 @@ inputMusica.addEventListener('change', () => {
     }
 })
 
-botonIniciarPausar.addEventListener('click', () => {
+botonIniciarPausar.addEventListener('click', iniciarPausar)
+
+const cuentaRegresiva = () => {
+    if( tiempoTranscurrido <= 0){
+        reiniciar();
+        return //Use to interrupt flow of the web
+    }else {
+        tiempoTranscurrido -= 1;  //Decreasing value of the variable 
+    }
     
-})
+    console.log(tiempoTranscurrido)
+}
 
 function iniciarPausar(){
     idIntervalo = setInterval(cuentaRegresiva, 1000) //Method to establish an interval in wich a determinated thing is going to occur
+}
+
+function reiniciar() { 
+    clearInterval(idIntervalo) //Interrupts flow of setInterval
+    idIntervalo = null; //Restarting value of the interval
 }
