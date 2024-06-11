@@ -13,6 +13,8 @@ const botones = document.querySelectorAll('.app__card-button');
 const inputMusica = document.querySelector('#alternar-musica');
 const musica = new Audio('./sonidos/luna-rise-part-one.mp3'); //Creating an audio object
 
+musica.loop = true;
+
 const cambiarContexto = (contexto) => { //Using a function to optimize code
     html.setAttribute('data-contexto', contexto); //Changing an attribute of my HTML element
     banner.setAttribute('src', `imagenes/${contexto}.png`);
