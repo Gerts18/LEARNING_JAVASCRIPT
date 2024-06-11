@@ -87,10 +87,8 @@ const cuentaRegresiva = () => {
     if( tiempoTranscurrido <= 0){
         reiniciar();
         tiempoTranscurrido = 7;
-        return //Use to interrupt flow of the web
-    }else if(tiempoTranscurrido == 6){
         sonidoFinalizando.play();
-        tiempoTranscurrido -= 1;
+        return //Use to interrupt flow of the web
     }else {
         tiempoTranscurrido -= 1;  //Decreasing value of the variable 
     }
