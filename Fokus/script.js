@@ -16,6 +16,9 @@ const musica = new Audio('./sonidos/luna-rise-part-one.mp3'); //Creating an audi
 musica.loop = true;
 
 let tiempoTranscurrido = 5;  //Time in seconds
+let idIntervalo = null;
+
+const botonIniciarPausar = document.querySelector('#start-pause');
 
 const cambiarContexto = (contexto) => { //Using a function to optimize code
     html.setAttribute('data-contexto', contexto); //Changing an attribute of my HTML element
@@ -52,6 +55,7 @@ const cambiarContexto = (contexto) => { //Using a function to optimize code
 }
 
 const cuentaRegresiva = () => {
+    iniciarPausar();
     tiempoTranscurrido -= 1;  //Decreasing value of the variable 
 }
 
@@ -78,3 +82,10 @@ inputMusica.addEventListener('change', () => {
     }
 })
 
+botonIniciarPausar.addEventListener('click', () => {
+    
+})
+
+function iniciarPausar(){
+    idIntervalo = setInterval(cuentaRegresiva, 1000) //Method to establish an interval in wich a determinated thing is going to occur
+}
