@@ -15,6 +15,8 @@ const musica = new Audio('./sonidos/luna-rise-part-one.mp3'); //Creating an audi
 
 musica.loop = true;
 
+let tiempoTranscurrido = 5;  //Time in seconds
+
 const cambiarContexto = (contexto) => { //Using a function to optimize code
     html.setAttribute('data-contexto', contexto); //Changing an attribute of my HTML element
     banner.setAttribute('src', `imagenes/${contexto}.png`);
@@ -49,6 +51,10 @@ const cambiarContexto = (contexto) => { //Using a function to optimize code
     }
 }
 
+const cuentaRegresiva = () => {
+    tiempoTranscurrido -= 1;  //Decreasing value of the variable 
+}
+
 botonEnfoque.addEventListener('click', () => { //Listening an event
     cambiarContexto('enfoque'); //Making changes based on the button clicked
     botonEnfoque.classList.add('active'); //Adding focus
@@ -71,3 +77,4 @@ inputMusica.addEventListener('change', () => {
         musica.pause();
     }
 })
+
