@@ -15,10 +15,14 @@ const musica = new Audio('./sonidos/luna-rise-part-one.mp3'); //Creating an audi
 
 musica.loop = true;
 
-let tiempoTranscurrido = 5;  //Time in seconds
+let tiempoTranscurrido = 7;  //Time in seconds
 let idIntervalo = null;
 
 const botonIniciarPausar = document.querySelector('#start-pause');
+
+const sonidoPlay = new Audio('./sonidos/play.wav');
+const sonidoPause = new Audio('./sonidos/pause.mp3');
+const sonidoFinalizando = new Audio('./sonidos/beep.mp3');
 
 const cambiarContexto = (contexto) => { //Using a function to optimize code
     html.setAttribute('data-contexto', contexto); //Changing an attribute of my HTML element
@@ -82,7 +86,11 @@ botonIniciarPausar.addEventListener('click', iniciarPausar)
 const cuentaRegresiva = () => {
     if( tiempoTranscurrido <= 0){
         reiniciar();
+        tiempoTranscurrido = 7;
         return //Use to interrupt flow of the web
+    }else if(tiempoTranscurrido == 6){
+        sonidoFinalizando.play();
+        tiempoTranscurrido -= 1;
     }else {
         tiempoTranscurrido -= 1;  //Decreasing value of the variable 
     }
@@ -92,11 +100,13 @@ const cuentaRegresiva = () => {
 
 function iniciarPausar(){
     if(idIntervalo){ //If idIntervalo it's different of null
+        sonidoPause.play();
         reiniciar() 
         return 
-    }
-
-    idIntervalo = setInterval(cuentaRegresiva, 1000) //Method to establish an interval in wich a determinated thing is going to occur
+    }else {
+        sonidoPlay.play();
+        idIntervalo = setInterval(cuentaRegresiva, 1000) //Method to establish an interval in wich a determinated thing is going to occur
+    }   
 }
 
 function reiniciar() { 
