@@ -4,8 +4,11 @@ const html = document.querySelector('html'); //Bringing HTML elements from the D
 const botonEnfoque = document.querySelector('.app__card-button--enfoque');
 const botonCorto = document.querySelector('.app__card-button--corto');
 const botonLargo = document.querySelector('.app__card-button--largo');
+
 const banner = document.querySelector('.app__image'); 
 const titulo = document.querySelector('.app__title');
+
+const botones = document.querySelectorAll('.app__card-button')
 
 const cambiarContexto = (contexto) => { //Using a function to optimize code
     html.setAttribute('data-contexto', contexto); //Changing an attribute of my HTML element
@@ -39,12 +42,15 @@ const cambiarContexto = (contexto) => { //Using a function to optimize code
 
 botonEnfoque.addEventListener('click', () => {
     cambiarContexto('enfoque');
+    botonEnfoque.classList.add('active');
 })
 
 botonCorto.addEventListener('click', () => { //Listening an event
     cambiarContexto('descanso-largo');
+    botonCorto.classList.add('active');
 })
 
 botonLargo.addEventListener('click', () => {
     cambiarContexto('descanso-corto');
+    botonLargo.classList.add('active');
 })
