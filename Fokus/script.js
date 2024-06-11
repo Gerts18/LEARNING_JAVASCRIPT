@@ -14,6 +14,10 @@ const cambiarContexto = (contexto) => { //Using a function to optimize code
     html.setAttribute('data-contexto', contexto); //Changing an attribute of my HTML element
     banner.setAttribute('src', `imagenes/${contexto}.png`);
 
+    botones.forEach((contexto) => {
+        contexto.classList.remove('active')
+    }) //Removing focus for each button before adding it individually
+
     switch(contexto){
         case 'enfoque': 
             titulo.innerHTML = 
@@ -40,12 +44,12 @@ const cambiarContexto = (contexto) => { //Using a function to optimize code
     }
 }
 
-botonEnfoque.addEventListener('click', () => {
-    cambiarContexto('enfoque');
-    botonEnfoque.classList.add('active');
+botonEnfoque.addEventListener('click', () => { //Listening an event
+    cambiarContexto('enfoque'); //Making changes based on the button clicked
+    botonEnfoque.classList.add('active'); //Adding focus
 })
 
-botonCorto.addEventListener('click', () => { //Listening an event
+botonCorto.addEventListener('click', () => { 
     cambiarContexto('descanso-largo');
     botonCorto.classList.add('active');
 })
