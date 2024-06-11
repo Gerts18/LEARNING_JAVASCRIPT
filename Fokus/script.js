@@ -8,7 +8,10 @@ const botonLargo = document.querySelector('.app__card-button--largo');
 const banner = document.querySelector('.app__image'); 
 const titulo = document.querySelector('.app__title');
 
-const botones = document.querySelectorAll('.app__card-button')
+const botones = document.querySelectorAll('.app__card-button');
+
+const inputMusica = document.querySelector('#alternar-musica');
+const musica = new Audio('./sonidos/luna-rise-part-one.mp3'); //Creating an audio object
 
 const cambiarContexto = (contexto) => { //Using a function to optimize code
     html.setAttribute('data-contexto', contexto); //Changing an attribute of my HTML element
@@ -57,4 +60,12 @@ botonCorto.addEventListener('click', () => {
 botonLargo.addEventListener('click', () => {
     cambiarContexto('descanso-corto');
     botonLargo.classList.add('active');
+})
+
+inputMusica.addEventListener('change', () => {
+    if(musica.paused){
+        musica.play();
+    }else {
+        musica.pause();
+    }
 })
