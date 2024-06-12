@@ -76,7 +76,7 @@ botonEnfoque.addEventListener('click', () => { //Listening an event
 })
 
 botonCorto.addEventListener('click', () => { 
-    establecerTiempo(10);
+    establecerTiempo(300);
     cambiarContexto('descanso-largo');
     botonCorto.classList.add('active');
 })
