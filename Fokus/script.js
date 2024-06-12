@@ -15,8 +15,8 @@ const musica = new Audio('./sonidos/luna-rise-part-one.mp3'); //Creating an audi
 
 musica.loop = true;
 
-let time = 1500;
-let tiempoTranscurrido = time;  //Time in seconds
+let tiempoEstablecido = 1500;
+let tiempoTranscurrido = tiempoEstablecido;  //Time in seconds
 let idIntervalo = null;
 
 const botonIniciarPausar = document.querySelector('#start-pause');
@@ -64,21 +64,25 @@ const cambiarContexto = (contexto) => { //Using a function to optimize code
         
     }
 }
+function establecerTiempo(tiempo){
+    tiempoTranscurrido = tiempo;
+    tiempoEstablecido = tiempo;
+}
 
 botonEnfoque.addEventListener('click', () => { //Listening an event
-    tiempoTranscurrido = 1500;
+    establecerTiempo(1500);
     cambiarContexto('enfoque'); //Making changes based on the button clicked
     botonEnfoque.classList.add('active'); //Adding focus
 })
 
 botonCorto.addEventListener('click', () => { 
-    tiempoTranscurrido = 300;
+    establecerTiempo(10);
     cambiarContexto('descanso-largo');
     botonCorto.classList.add('active');
 })
 
 botonLargo.addEventListener('click', () => {
-    tiempoTranscurrido = 900;
+    establecerTiempo(900);
     cambiarContexto('descanso-corto');
     botonLargo.classList.add('active');
 })
@@ -98,7 +102,7 @@ const cuentaRegresiva = () => {
     imagenIniciarPausar.setAttribute('src', "./imagenes/pause.png");
     if( tiempoTranscurrido <= 0){
         reiniciar();
-        /* tiempoTranscurrido = time; */
+        tiempoTranscurrido = tiempoEstablecido; 
         sonidoFinalizando.currentTime = 3;
         sonidoFinalizando.play();
         return //Use to interrupt flow of the web
