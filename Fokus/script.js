@@ -15,7 +15,7 @@ const musica = new Audio('./sonidos/luna-rise-part-one.mp3'); //Creating an audi
 
 musica.loop = true;
 
-let time = 5;
+let time = 1500;
 
 let tiempoTranscurrido = time;  //Time in seconds
 let idIntervalo = null;
@@ -27,6 +27,8 @@ const imagenIniciarPausar = document.querySelector('.app__card-primary-butto-ico
 const sonidoPlay = new Audio('./sonidos/play.wav');
 const sonidoPause = new Audio('./sonidos/pause.mp3');
 const sonidoFinalizando = new Audio('./sonidos/beep.mp3');
+
+const timepoEnPantalla = document.querySelector('#timer');
 
 const cambiarContexto = (contexto) => { //Using a function to optimize code
     html.setAttribute('data-contexto', contexto); //Changing an attribute of my HTML element
@@ -99,7 +101,7 @@ const cuentaRegresiva = () => {
     }else {
         tiempoTranscurrido -= 1;  //Decreasing value of the variable 
     }
-    console.log(tiempoTranscurrido)
+    mostrarTiempo();
 }
 
 function iniciarPausar(){
@@ -119,3 +121,10 @@ function reiniciar() {
     clearInterval(idIntervalo); //Interrupts flow of setInterval
     idIntervalo = null; //Restarting value of the interval
 }
+
+function mostrarTiempo(){
+    const tiempo = tiempoTranscurrido;
+    timepoEnPantalla.innerHTML = `${tiempo}`
+}
+
+mostrarTiempo();
