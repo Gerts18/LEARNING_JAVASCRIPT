@@ -16,7 +16,6 @@ const musica = new Audio('./sonidos/luna-rise-part-one.mp3'); //Creating an audi
 musica.loop = true;
 
 let time = 1500;
-
 let tiempoTranscurrido = time;  //Time in seconds
 let idIntervalo = null;
 
@@ -33,6 +32,8 @@ const timepoEnPantalla = document.querySelector('#timer');
 const cambiarContexto = (contexto) => { //Using a function to optimize code
     html.setAttribute('data-contexto', contexto); //Changing an attribute of my HTML element
     banner.setAttribute('src', `imagenes/${contexto}.png`);
+
+    mostrarTiempo();
 
     botones.forEach((contexto) => {
         contexto.classList.remove('active')
@@ -65,16 +66,19 @@ const cambiarContexto = (contexto) => { //Using a function to optimize code
 }
 
 botonEnfoque.addEventListener('click', () => { //Listening an event
+    tiempoTranscurrido = 1500;
     cambiarContexto('enfoque'); //Making changes based on the button clicked
     botonEnfoque.classList.add('active'); //Adding focus
 })
 
 botonCorto.addEventListener('click', () => { 
+    tiempoTranscurrido = 300;
     cambiarContexto('descanso-largo');
     botonCorto.classList.add('active');
 })
 
 botonLargo.addEventListener('click', () => {
+    tiempoTranscurrido = 900;
     cambiarContexto('descanso-corto');
     botonLargo.classList.add('active');
 })
@@ -94,7 +98,7 @@ const cuentaRegresiva = () => {
     imagenIniciarPausar.setAttribute('src', "./imagenes/pause.png");
     if( tiempoTranscurrido <= 0){
         reiniciar();
-        tiempoTranscurrido = time;
+        /* tiempoTranscurrido = time; */
         sonidoFinalizando.currentTime = 3;
         sonidoFinalizando.play();
         return //Use to interrupt flow of the web
@@ -123,8 +127,9 @@ function reiniciar() {
 }
 
 function mostrarTiempo(){
-    const tiempo = tiempoTranscurrido;
-    timepoEnPantalla.innerHTML = `${tiempo}`
+    const tiempo = new Date (tiempoTranscurrido * 1000); //Use to manage dates and hours
+    const tiempoFormateado = tiempo.toLocaleTimeString('es-MX', {minute:'2-digit', second:'2-digit'})
+    timepoEnPantalla.innerHTML = `${tiempoFormateado}`
 }
 
 mostrarTiempo();
