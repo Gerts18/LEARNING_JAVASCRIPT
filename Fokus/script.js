@@ -15,10 +15,14 @@ const musica = new Audio('./sonidos/luna-rise-part-one.mp3'); //Creating an audi
 
 musica.loop = true;
 
-let tiempoTranscurrido = 7;  //Time in seconds
+let time = 5;
+
+let tiempoTranscurrido = time;  //Time in seconds
 let idIntervalo = null;
 
 const botonIniciarPausar = document.querySelector('#start-pause');
+const textoIniciarPausar = document.querySelector('#start-pause span');
+const imagenIniciarPausar = document.querySelector('.app__card-primary-butto-icon');
 
 const sonidoPlay = new Audio('./sonidos/play.wav');
 const sonidoPause = new Audio('./sonidos/pause.mp3');
@@ -84,15 +88,17 @@ inputMusica.addEventListener('change', () => {
 botonIniciarPausar.addEventListener('click', iniciarPausar)
 
 const cuentaRegresiva = () => {
+    textoIniciarPausar.textContent = 'Pausar'
+    imagenIniciarPausar.setAttribute('src', "./imagenes/pause.png");
     if( tiempoTranscurrido <= 0){
         reiniciar();
-        tiempoTranscurrido = 7;
+        tiempoTranscurrido = time;
+        sonidoFinalizando.currentTime = 3;
         sonidoFinalizando.play();
         return //Use to interrupt flow of the web
     }else {
         tiempoTranscurrido -= 1;  //Decreasing value of the variable 
     }
-    
     console.log(tiempoTranscurrido)
 }
 
@@ -108,6 +114,8 @@ function iniciarPausar(){
 }
 
 function reiniciar() { 
-    clearInterval(idIntervalo) //Interrupts flow of setInterval
+    textoIniciarPausar.textContent = 'Comenzar';
+    imagenIniciarPausar.setAttribute('src', "./imagenes/play_arrow.png");
+    clearInterval(idIntervalo); //Interrupts flow of setInterval
     idIntervalo = null; //Restarting value of the interval
 }
