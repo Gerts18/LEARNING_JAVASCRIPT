@@ -1,4 +1,4 @@
-const url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=5";
+const url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=6";
 
 // Part of the code used to get data from an API
 let listaImagenes = () => {
@@ -26,7 +26,8 @@ let listaImagenes = () => {
         }
     )
     .catch( //Used to handle the response if rejected.
-
+        error => console.log(error) // To know what went wrong if something failed.
     )
 };
 
+listaImagenes();
