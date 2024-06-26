@@ -6,9 +6,23 @@ let listaImagenes = () => {
     .then( //Used to handle the response if resolved.
         response => response.json()
     )
-    .then (
+    .then(
         dataImages => {
-            console.log(dataImages)
+            console.log(dataImages); // Being sure if we are getting data.
+
+            const card = document.querySelector("[data-ul]");//Accessing the section where the data obtained from the API will be placed.
+
+            dataImages.forEach(element => { // Doing the same for each element 
+                const content = // Modifying my content with data obtained.
+                `
+                <li class="card">
+                    <img class="card__image" src=${element.hdurl} alt=${element.copyright} >
+                    <h3 class="card__title">${element.title}</h3>
+                </li>
+                `;
+
+                card.innerHTML = card.innerHTML + content; //Modifying the DOM 
+            });
         }
     )
     .catch( //Used to handle the response if rejected.
