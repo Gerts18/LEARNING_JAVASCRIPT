@@ -21,7 +21,9 @@ async function listaImagenes () {
             card.innerHTML = card.innerHTML + content; //Modifying the DOM 
         });
 
-    }catch{ // If petition rejected, we manage it here
-        
+    }catch(error){ // If petition rejected, we manage it here
+        console.log(error);
     }
 };
+
+listaImagenes();
