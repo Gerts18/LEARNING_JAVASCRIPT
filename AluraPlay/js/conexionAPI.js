@@ -9,7 +9,7 @@ async function listarVideos(){
     return datos;   
 }
 
-async function crearVideo(titulo, descripcion, url, imagen){ //POST petition
+async function enviarVideo(titulo, descripcion, url, imagen){ //POST petition
     const conexion = await fetch('http://localhost:3001/videos', {
         method: 'POST',
         headers: {"Content-Type" : "application/json"}, //Information associated to the file to be transmitted
@@ -28,7 +28,7 @@ async function crearVideo(titulo, descripcion, url, imagen){ //POST petition
 
 export const conexionApi = {
     listarVideos,
-    crearVideo
+    enviarVideo
 }
 
 //listarVideos();
