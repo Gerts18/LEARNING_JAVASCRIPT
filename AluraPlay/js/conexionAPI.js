@@ -15,7 +15,7 @@ async function crearVideo(titulo, descripcion, url, imagen){ //POST petition
         headers: {"Content-Type" : "application/json"}, //Information associated to the file to be transmitted
         body: JSON.stringify({ //Convert from JSON to String
             titulo: titulo,
-            descripcion: descripcion,
+            descripcion: `${descripcion} vizualizaciones `,
             url: url,
             imagen: imagen
         })
