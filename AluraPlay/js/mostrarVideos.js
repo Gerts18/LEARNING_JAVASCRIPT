@@ -1,3 +1,5 @@
+import { conexionApi } from "./conexionAPI.js";
+
 const lista = document.querySelector('[data-lista]');
 
 function crearCard(){
