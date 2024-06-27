@@ -9,4 +9,8 @@ async function listarVideos(){
     return datos;
 }
 
+export const conexionApi = {
+    listarVideos
+}
+
 //listarVideos();
