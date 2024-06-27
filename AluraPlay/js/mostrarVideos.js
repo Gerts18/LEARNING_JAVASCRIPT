@@ -13,8 +13,8 @@ function crearCard(titulo, descripcion, url, imagen){
         allowfullscreen></iframe>
     <div class="descripcion-video">
         <img src=${imagen} alt="logo canal alura">
-        <h3>${descripcion}</h3>
-        <p>236 mil visualizaciones</p>
+        <h3>${titulo}</h3>
+        <p>${descripcion}</p>
     </div>
     `
 
@@ -25,6 +25,8 @@ async function listarVideos(){
     const listaApi = await conexionApi.listarVideos();
 
     listaApi.forEach((video) => {
-        lista.appendChild(crearCard(video.title, video.descripcion, video.url, video.imagen))
+        lista.appendChild(crearCard(video.titulo, video.descripcion, video.url, video.imagem))
     });
 };
+
+listarVideos();
