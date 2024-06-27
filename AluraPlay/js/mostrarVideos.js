@@ -25,7 +25,7 @@ async function listarVideos(){
     const listaApi = await conexionApi.listarVideos();
 
     listaApi.forEach((video) => {
-        lista.appendChild(crearCard(video.titulo, video.descripcion, video.url, video.imagem))
+        lista.appendChild(crearCard(video.titulo, video.descripcion, video.url, video.imagen))
     });
 };
 
