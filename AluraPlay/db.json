@@ -83,6 +83,13 @@
       "url": "https://www.youtube.com/embed/mwNfWRsDDWE",
       "imagen": "https://purr.objects-us-east-1.dream.io/i/OoNx6.jpg",
       "id": 12
+    },
+    {
+      "titulo": "Callback, Promesas, Async Await y Try Catch | JavaScript",
+      "descripcion": "NaN vizualizaciones ",
+      "url": "https://www.youtube.com/embed/p3Oq3AfuteA",
+      "imagen": "https://yt3.ggpht.com/f8c9Nwwegpu42KzYHahO1MmR6SQW6kb6N8slSTY0baqc_sOZnNXb8_vh-FGrmzQL4T54e2R6mg=s88-c-k-c0x00ffffff-no-rj",
+      "id": 13
     }
   ]
 }
