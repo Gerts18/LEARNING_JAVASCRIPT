@@ -20,3 +20,7 @@ function crearCard(){
 
     return video;
 }
+
+async function listarVideos(){
+    const listaApi = conexionApi.listarVideos();
+};
