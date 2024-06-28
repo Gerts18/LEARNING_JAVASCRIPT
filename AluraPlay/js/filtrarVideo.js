@@ -10,6 +10,10 @@ async function filtrarVideo(evento){
 
     const lista = document.querySelector('[data-lista]');
 
+    while(lista.firstChild){
+        lista.removeChild(lista.firstChild); //Removing child elements until theres none
+    }
+
     busqueda.forEach(video => {
         lista.appendChild(crearCard(video.titulo, video.descripcion, video.url, video.imagen));
     });
