@@ -30,3 +30,11 @@ const boton = document.querySelector("[data-boton-busqueda] ");
 boton.addEventListener('click', (evento)=> {
     filtrarVideo(evento)
 })
+
+const inputElement = document.getElementById('buscar');
+inputElement.addEventListener('keyup', function(e){
+    //console.log(e)
+  if (e.keyCode == 13) {
+    filtrarVideo(e)
+  }
+});
