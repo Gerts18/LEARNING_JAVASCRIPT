@@ -1,13 +1,20 @@
 import { conexionApi } from "./conexionAPI.js";
+import crearCard from "./mostrarVideos.js";
 
 async function filtrarVideo(evento){
 
     evento.preventDefault();
 
     const datosBusqueda = document.querySelector('[data-busqueda]').value;
-    const busqueda = conexionApi.buscarVideo(datosBusqueda);
+    const busqueda = await conexionApi.buscarVideo(datosBusqueda);
 
-    console.log(busqueda);
+    const lista = document.querySelector('[data-lista]');
+
+    busqueda.forEach(video => {
+        lista.appendChild(crearCard(video.titulo, video.descripcion, video.url, video.imagen));
+    });
+
+    //console.log(busqueda);
 }
 
 const boton = document.querySelector("[data-boton-busqueda] ");
