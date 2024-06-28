@@ -26,9 +26,18 @@ async function enviarVideo(titulo, descripcion, url, imagen){ //POST petition
     return datos;
 }
 
+async function buscarVideo(palabraClave){
+    const conexion = await fetch(`http://localhost:3001/videos?q=${palabraClave}`);
+
+    const consulta = conexion.json();
+
+    return consulta;
+}
+
 export const conexionApi = {
     listarVideos,
-    enviarVideo
+    enviarVideo,
+    buscarVideo
 }
 
 //listarVideos();
