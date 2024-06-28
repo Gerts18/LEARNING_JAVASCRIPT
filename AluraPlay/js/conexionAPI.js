@@ -23,6 +23,10 @@ async function enviarVideo(titulo, descripcion, url, imagen){ //POST petition
 
     const datos = conexion.json();
 
+    if(!conexion.ok){
+        throw new Error("Ha ocurrido un error al enviar el video");
+    }
+
     return datos;
 }
 

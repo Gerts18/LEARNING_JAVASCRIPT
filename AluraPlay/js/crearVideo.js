@@ -11,9 +11,14 @@ async function crearVideo(e){
 
     const descripcion = Math.floor(Math.random * 10).toString();
 
-    await conexionApi.enviarVideo(titulo, descripcion, url, imagen); //Sending data
+    try{
+        await conexionApi.enviarVideo(titulo, descripcion, url, imagen); //Sending data
+        window.location.href="../pages/envio-concluido.html";
+    }catch (e){
+        alert(e);
+    }
 
-    window.location.href="../pages/envio-concluido.html";
+    
 }
 
 formulario.addEventListener('submit', (evento) => {
