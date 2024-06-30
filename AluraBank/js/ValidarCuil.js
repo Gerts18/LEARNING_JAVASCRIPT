@@ -1,9 +1,15 @@
 export default function esUnCuil(campo){
     const cuil = campo.value.replace(/[-\/]/g, ""); //Replacing some characters 
-    tieneNumerosRepetidos(cuil);
-    validarPrimerosDigitos(cuil);
-    //console.log(cuil);
-   //console.log(tieneNumerosRepetidos(cuil))
+    if(tieneNumerosRepetidos(cuil)){
+        console.log("Valores Repetidos");
+    }else {
+        if (validarPrimerosDigitos(cuil) && validarDigitoVerificador(cuil) ){
+            console.log("Cuil Valido");
+        }else { 
+            console.log("Cuil no existe");
+        }
+    }
+    
 }
 
 function tieneNumerosRepetidos(cuil){
@@ -31,4 +37,25 @@ function validarPrimerosDigitos(cuil){
     //console.log(primerosDigitos)
 
     return digitosValidos.includes(primerosDigitos);
+}
+
+function validarDigitoVerificador(cuil){
+    let acumulado = 0;
+    const factores = [5,4,3,2,7,6,5,4,3,2];
+
+    for(let i = 0; i<10; i++){
+        acumulado += parseInt(cuil[i], 10)* factores[i]; //Converting to number 
+    }
+
+    let validadorTeorico = 11 - (acumulado % 11); // Return module of a division
+
+    if(validadorTeorico == 11){
+        validadorTeorico = 0;
+    }else if (validadorTeorico == 10) {
+        validadorTeorico = 9;
+    }
+
+    const digitoVerificador = parseInt(cuil[10], 10)
+
+    return digitoVerificador === validadorTeorico;
 }
