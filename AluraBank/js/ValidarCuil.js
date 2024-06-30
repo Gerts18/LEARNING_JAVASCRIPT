@@ -1,8 +1,9 @@
 export default function esUnCuil(campo){
     const cuil = campo.value.replace(/[-\/]/g, ""); //Replacing some characters 
     tieneNumerosRepetidos(cuil);
-    console.log(cuil);
-    console.log(tieneNumerosRepetidos(cuil))
+    validarPrimerosDigitos(cuil);
+    //console.log(cuil);
+   //console.log(tieneNumerosRepetidos(cuil))
 }
 
 function tieneNumerosRepetidos(cuil){
@@ -20,4 +21,14 @@ function tieneNumerosRepetidos(cuil){
     ];
 
     return numerosRepetidos.includes(cuil)
+}
+
+function validarPrimerosDigitos(cuil){
+    let primerosDigitos = cuil.substr(0,2) // Extracts first two characters 
+
+    let digitosValidos = [];
+
+    //console.log(primerosDigitos)
+
+    return digitosValidos.includes(primerosDigitos);
 }
