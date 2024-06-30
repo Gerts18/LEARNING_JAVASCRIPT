@@ -32,7 +32,7 @@ function tieneNumerosRepetidos(cuil){
 function validarPrimerosDigitos(cuil){
     let primerosDigitos = cuil.substr(0,2) // Extracts first two characters 
 
-    let digitosValidos = [];
+    let digitosValidos = ["20","23","24","27","30","33","34"];
 
     //console.log(primerosDigitos)
 
