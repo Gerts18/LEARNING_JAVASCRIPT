@@ -4,6 +4,24 @@ import { tiposError, mensajes } from "./customErrors.js"; //Importing my objects
 
 const camposFormulario = document.querySelectorAll("[required]"); //Selecting and saving all elements HTML that have a required attribute 
 
+const formulario = document.querySelector('[data-formulario]');
+
+formulario.addEventListener('submit', (evento) => {
+    evento.preventDefault();
+    const listaRespuestas = {
+        nombre: evento.target.elements["nombre"].value,
+        email: evento.target.elements["email"].value,
+        identificacion: evento.target.elements["identificacion"].value,
+        cuil: evento.target.elements["cuil"].value,
+        fecha_nacimiento: evento.target.elements["fecha_nacimiento"].value,
+        terminos: evento.target.elements["terminos"].value
+    }
+
+    localStorage.setItem('registro', JSON.stringify(listaRespuestas)); //Saving data form user locally
+
+    window.location.href = "./abrir-cuenta-form-2.html"
+})
+
 camposFormulario.forEach((campo) => { //Itereating each element and adding them an event
     campo.addEventListener('blur', () => {
         verificarCampo(campo);
