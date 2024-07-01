@@ -17,6 +17,8 @@ function verificarCampo (campo){ //Function asociated to the event
 
     let mensaje = "";
 
+    campo.setCustomValidity("") //Quiting message if theres no problem with any validation
+
     if(campo.name == "cuil" && campo.value.length >= 11){
         esUnCuil(campo)
     }
@@ -33,8 +35,8 @@ function verificarCampo (campo){ //Function asociated to the event
         }
     })
 
-    const mensajeError = campo.parentNode.querySelector(".mensaje-error");
-    const validarInputCheck = campo.checkValidity(); //
+    const mensajeError = campo.parentNode.querySelector(".mensaje-error"); 
+    const validarInputCheck = campo.checkValidity(); //To know if my input is valid or not 
 
     if(!validarInputCheck){
         mensajeError.textContent = mensaje;
